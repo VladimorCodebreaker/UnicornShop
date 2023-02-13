@@ -1,0 +1,24 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net7.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\UnicornShop.Application\UnicornShop.Application.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="Database\" />
+    <None Remove="Database\Mappings\" />
+    <None Remove="Database\Configuration\" />
+    <None Remove="Repositories\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Database\" />
+    <Folder Include="Database\Mappings\" />
+    <Folder Include="Database\Configuration\" />
+    <Folder Include="Repositories\" />
+  </ItemGroup>
+</Project>
