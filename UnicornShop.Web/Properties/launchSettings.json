@@ -10,6 +10,3 @@
     }
   }
 }
-
-// Web depends on Infrastructure
-// Infrastructure depends on Application

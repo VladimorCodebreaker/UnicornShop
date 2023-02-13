@@ -1,4 +1,6 @@
-﻿namespace UnicornShop.Web;
+﻿using UnicornShop.Infrastructure.Database.Configuration;
+
+namespace UnicornShop.Web;
 
 public class Program
 {
@@ -8,6 +10,7 @@ public class Program
 
         // Add services to the container.
         builder.Services.AddControllersWithViews();
+        builder.Services.AddDatabase("my_Connection", typeof(ApplicationConfiguration).Assembly).AddControllersWithViews();
 
         var app = builder.Build();
 
