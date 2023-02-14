@@ -10,7 +10,7 @@ public class Program
 
         // Add services to the container.
         builder.Services.AddControllersWithViews();
-        builder.Services.AddDatabase("my_Connection", typeof(ApplicationConfiguration).Assembly).AddControllersWithViews();
+        builder.Services.AddDatabase("Data Source=unicorn.db", typeof(ApplicationConfiguration).Assembly).AddControllersWithViews();
 
         var app = builder.Build();
 
@@ -28,6 +28,8 @@ public class Program
         app.MapControllerRoute(
             name: "default",
             pattern: "{controller=Home}/{action=Index}/{id?}");
+
+        app.UseMigrations();
 
         app.Run();
     }

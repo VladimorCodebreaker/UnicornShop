@@ -2,6 +2,7 @@
 using Microsoft.Extensions.DependencyInjection;
 using System.Reflection;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Builder;
 
 namespace UnicornShop.Infrastructure.Database.Configuration
 {
@@ -27,6 +28,15 @@ namespace UnicornShop.Infrastructure.Database.Configuration
             });
 
             return services;
+        }
+
+        public static IApplicationBuilder UseMigrations(this IApplicationBuilder app)
+        {
+            var database = app.ApplicationServices.CreateScope().ServiceProvider.GetRequiredService<DatabaseContext>();
+
+            database.Database.Migrate();
+
+            return app;
         }
     }
 }
